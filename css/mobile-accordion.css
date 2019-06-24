@@ -1,0 +1,125 @@
+
+.mobile__accordion h2{
+    color: #444;
+    font-size: 12px;
+    margin: 0px;
+    font-weight: 600;
+}
+
+.mobile__accordion__body {
+    display: block;
+    padding-bottom: 0px;
+}
+
+.mobile__accordion__body--hidden {
+    display: block;
+    opacity: 1;
+}
+
+.mobile__accordion__item {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.mobile__accordion__title {
+    margin: 0;
+    padding: 7px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #6AAF1E !important;
+    color: #fff !important;
+    border-radius: 5px 5px 0 0;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.mobile__accordion__arrow {
+    margin-top: -15px;
+    position: absolute;
+    right: 25px;
+    display: none;
+}
+
+.mobile__accordion__arrow::before {
+    content: '';
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    margin-right: .5rem;
+    margin-left: .5rem;
+    vertical-align: middle;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
+
+[aria-expanded='true'] .mobile__accordion__arrow::before, [aria-selected='true'] .mobile__accordion__arrow::before {
+    transform: rotate(225deg);
+}
+
+.mobile__accordion__arrow::after {
+    right: 4px;
+    transform: rotate(-45deg);
+}
+
+
+[aria-expanded='false'] .mobile__accordion__arrow::before, [aria-selected='false'] .mobile__accordion__arrow::before {
+    transform: rotate(45deg);
+    margin-top: -10px
+}
+
+.mobile__accordion__arrow::before,
+.mobile__accordion__arrow::after {
+    transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+
+.mobile__accordion__title--animated:hover .mobile__accordion__arrow {
+    animation-name: move-down;
+    animation-duration: 1.5s;
+}
+
+.mobile__accordion__title--animated[aria-expanded='true']:hover .mobile__accordion__arrow {
+    animation-name: move-up;
+    animation-duration: 1.5s;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .mobile__accordion__title {
+        background: #fff !important;
+        color: #444 !important;
+        padding: 15px;
+        border-bottom: 1px solid #e5e5e5;
+        font-weight: normal;
+    }
+
+    .mobile__accordion__item {
+        margin: 0px;
+        border-radius: 0px;
+        border: 0px
+    }
+
+    .mobile__accordion__arrow {
+        display: block;
+    }
+
+    .mobile__accordion__body--hidden {
+        display: none;
+        opacity: 0;
+        animation: fadein 0.35s ease-in;
+    }
+
+    .mobile__accordion__body {     
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .mobile__accordion {
+        margin: 1rem 10px 1rem 10px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+    }
+}

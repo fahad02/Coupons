@@ -1,0 +1,213 @@
+/**
+* ----------------------------------------------
+* Demo styles
+* ----------------------------------------------
+**/
+.u-position-absolute {
+    position: absolute;
+}
+
+.u-position-relative {
+    position: relative;
+}
+
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+
+.accordion__item--has-icon {
+    position: relative;
+}
+
+.accordion__title {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px;
+    font-size: 14px;
+    background: #fff !important;
+    color: #444 !important;
+    font-weight: normal;
+}
+
+
+.accordion__body {
+    display: block;
+    animation: fadein 0.35s ease-in;
+    padding-bottom: 10px
+}
+
+.accordion__body--hidden {
+    display: none;
+    opacity: 0;
+    animation: fadein 0.35s ease-in;
+}
+
+.accordion__title > *:last-child,
+.accordion__body > *:last-child {
+    margin-bottom: 0;
+}
+
+.cashback__accordion__arrow {
+    margin-top: -10px;
+    top: 20px;
+    position: absolute;
+    right: -20px;
+}
+
+.cashback__accordion__arrow::before {
+    content: '';
+    display: inline-block;
+    height: 7px;
+    width: 7px;
+    margin-right: 1rem;
+    margin-left: .5rem;
+    vertical-align: middle;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    // position: absolute;
+    // right: 0px
+    /* display: block;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background-color: currentColor;
+    content: ''; */
+}
+
+.accordion__arrow {
+
+    /* width: 12px;
+    height: 6px;
+     */
+    margin-top: -10px;
+    top: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.accordion__arrow::before {
+        content: '';
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    margin-right: .5rem;
+    margin-left: .5rem;
+    vertical-align: middle;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    // position: absolute;
+    // right: 0px
+    /* display: block;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background-color: currentColor;
+    content: ''; */
+}
+
+.cashback__accordion__arrow::before {
+    // left: 4px;
+    transform: rotate(45deg);
+}
+
+[aria-expanded='true'] .cashback__accordion__arrow::before, [aria-selected='true'] .cashback__accordion__arrow::before {
+    transform: rotate(225deg);
+}
+
+.accordion__arrow::before {
+    // left: 4px;
+    transform: rotate(45deg);
+}
+
+[aria-expanded='true'] .accordion__arrow::before, [aria-selected='true'] .accordion__arrow::before {
+    transform: rotate(225deg);
+}
+
+
+
+.accordion__arrow::after {
+    right: 4px;
+    transform: rotate(-45deg);
+}
+
+[aria-expanded='true'] .accordion__arrow::after, [aria-selected='true'] .accordion__arrow::after {
+    transform: rotate(45deg);
+}
+
+.cashback__accordion__arrow::before,
+.accordion__arrow::before,
+.accordion__arrow::after {
+    transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes move-down {
+    0% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(5px);
+    }
+    30% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes move-up {
+    0% {
+        transform: translateY(-1px);
+    }
+    10% {
+        transform: translateY(-1px);
+    }
+    20% {
+        transform: translateY(-1px);
+    }
+    30% {
+        transform: translateY(-1px);
+    }
+    100% {
+        transform: translateY(-1px);
+    }
+}
+
+.accordion__title--animated:hover .accordion__arrow {
+    animation-name: move-down;
+    animation-duration: 1.5s;
+}
+
+.accordion__title--animated[aria-expanded='true']:hover .accordion__arrow {
+    animation-name: move-up;
+    animation-duration: 1.5s;
+}
+
+.cashback__accordion__title--animated:hover .cashback__accordion__arrow {
+    animation-name: move-down;
+    animation-duration: 1.5s;
+}
+
+.cashback__accordion__title--animated[aria-expanded='true']:hover .cashback__accordion__arrow {
+    animation-name: move-up;
+    animation-duration: 1.5s;
+}
+
